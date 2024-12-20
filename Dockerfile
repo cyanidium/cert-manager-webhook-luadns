@@ -1,4 +1,4 @@
-FROM golang:1.22-alpine3.20 AS build_deps
+FROM docker.io/golang:1.23-alpine3.21 AS build_deps
 ARG TARGETARCH
 
 RUN apk add --no-cache git
@@ -6,20 +6,18 @@ RUN apk add --no-cache git
 WORKDIR /workspace
 ENV GO111MODULE=on
 
-COPY go.mod .
-COPY go.sum .
+COPY pkg/go.mod .
+COPY pkg/go.sum .
 
 RUN go mod download
 
 FROM build_deps AS build
 
-COPY . .
+COPY pkg/main.go .
 
 RUN CGO_ENABLED=0 GOARCH=$TARGETARCH go build -o webhook -ldflags '-w -extldflags "-static"' .
 
-FROM alpine:3.20
-LABEL maintainer="<adminio@adminio.biz>"
-LABEL org.opencontainers.image.source="https://github.com/adminios/certmanager-webhook-luadns"
+FROM docker.io/alpine:3.21
 
 RUN apk add --no-cache ca-certificates
 

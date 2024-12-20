@@ -1,0 +1,6 @@
+{
+  "apiKeySecretRef": {
+    "key": "token",
+    "name": "luadns-token"
+  }
+}

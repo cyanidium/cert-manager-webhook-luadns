@@ -1,0 +1,19 @@
+apiVersion: apiregistration.k8s.io/v1
+kind: APIService
+metadata:
+  name: v1alpha1.{{ include "luadns-webhook.api-group" . }}
+  labels:
+    app: {{ include "luadns-webhook.name" . }}
+    chart: {{ include "luadns-webhook.chart" . }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+  annotations:
+    cert-manager.io/inject-ca-from: "{{ .Release.Namespace }}/{{ include "luadns-webhook.servingCertificate" . }}"
+spec:
+  group: {{ include "luadns-webhook.api-group" . }}
+  groupPriorityMinimum: 1000
+  versionPriority: 15
+  service:
+    name: {{ include "luadns-webhook.fullname" . }}
+    namespace: {{ .Release.Namespace }}
+  version: v1alpha1

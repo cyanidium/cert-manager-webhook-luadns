@@ -17,3 +17,7 @@ cert-manager-webhook-example
 # Make artifacts
 _out
 _test
+
+# Test artifacts
+pkg/apiserver.local.config
+testdata/luadns-token.yaml

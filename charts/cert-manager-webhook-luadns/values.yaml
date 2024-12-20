@@ -1,0 +1,24 @@
+---
+# groupName sets the API group name for the API service that registers this
+# webhook service. It will be used when specifying an issuer for a
+# (Cluster)Issuer object. When customizing, provide an FQDN, for example:
+#   acme.my-company.com
+groupName: acme.luadns.com
+nameOverride: ''
+fullnameOverride: ''
+
+certManager:
+  namespace: cert-manager
+  serviceAccountName: cert-manager  # pragma: allowlist secret
+tokenSecretName: luadns-token  # pragma: allowlist secret
+image:
+  repository: cert-manager-webhook-luadns
+  tag: v0.1.0
+  pullPolicy: IfNotPresent
+service:
+  type: ClusterIP
+  port: 443
+resources: {}
+nodeSelector: {}
+tolerations: []
+affinity: {}
