@@ -13,8 +13,9 @@ certManager:
 tokenSecretName: luadns-token  # pragma: allowlist secret
 image:
   repository: cert-manager-webhook-luadns
-  tag: v0.1.2
   pullPolicy: IfNotPresent
+  # tag: v0.1.0
+# replicaCount: 1
 service:
   type: ClusterIP
   port: 443
