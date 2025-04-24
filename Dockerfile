@@ -1,4 +1,4 @@
-FROM docker.io/golang:1.23-alpine3.21 AS build_deps
+FROM docker.io/golang:1.23.8-alpine3.21 AS build_deps
 ARG TARGETARCH
 
 RUN apk add --no-cache git
