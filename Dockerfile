@@ -1,4 +1,4 @@
-FROM docker.io/golang:1.25.4-alpine3.22 AS build_deps
+FROM docker.io/golang:1.25.5-alpine3.23 AS build_deps
 ARG TARGETARCH
 
 RUN apk add --no-cache git
@@ -17,7 +17,7 @@ COPY pkg/main.go .
 
 RUN CGO_ENABLED=0 GOARCH=$TARGETARCH go build -o webhook -ldflags '-w -extldflags "-static"' .
 
-FROM docker.io/alpine:3.22.0
+FROM docker.io/alpine:3.23.0
 
 RUN apk add --no-cache ca-certificates
 
