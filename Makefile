@@ -11,6 +11,9 @@ KUBEBUILDER_VERSION=1.30.0
 
 HELM_FILES := $(shell find charts/cert-manager-webhook-luadns)
 
+.PHONY: all
+all: build
+
 .PHONY: test
 test: _test/kubebuilder-$(KUBEBUILDER_VERSION)-$(OS)-$(ARCH)/etcd _test/kubebuilder-$(KUBEBUILDER_VERSION)-$(OS)-$(ARCH)/kube-apiserver _test/kubebuilder-$(KUBEBUILDER_VERSION)-$(OS)-$(ARCH)/kubectl
 	cd pkg && \
@@ -29,7 +32,7 @@ _test/kubebuilder-$(KUBEBUILDER_VERSION)-$(OS)-$(ARCH)/etcd _test/kubebuilder-$(
 clean:
 	rm -Rf _test $(OUT)
 
-.PHONY: build all
+.PHONY: build
 build:
 	buildah build -t "$(IMAGE_NAME):$(IMAGE_TAG)" .
 
