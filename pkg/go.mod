@@ -5,9 +5,9 @@ go 1.25.6
 require (
 	github.com/cert-manager/cert-manager v1.19.3
 	github.com/luadns/luadns-go v0.3.0
-	k8s.io/apiextensions-apiserver v0.35.0
-	k8s.io/apimachinery v0.35.0
-	k8s.io/client-go v0.35.0
+	k8s.io/apiextensions-apiserver v0.34.1
+	k8s.io/apimachinery v0.34.1
+	k8s.io/client-go v0.34.1
 	k8s.io/klog/v2 v2.130.1
 )
 
