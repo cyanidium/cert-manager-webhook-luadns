@@ -3,12 +3,12 @@ module github.com/cyanidium/cert-manager-webhook-luadns
 go 1.25.7
 
 require (
-	github.com/cert-manager/cert-manager v1.20.0-beta.0
+	github.com/cert-manager/cert-manager v1.20.0
 	github.com/luadns/luadns-go v0.3.0
 	k8s.io/apiextensions-apiserver v0.35.2
 	k8s.io/apimachinery v0.35.2
 	k8s.io/client-go v0.35.2
-	k8s.io/klog/v2 v2.130.1
+	k8s.io/klog/v2 v2.140.0
 )
 
 require (
