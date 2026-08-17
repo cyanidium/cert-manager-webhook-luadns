@@ -62,7 +62,7 @@ repos:
             charts/cert-manager-webhook-luadns/templates/.*.yaml
           )$
   - repo: https://github.com/markdownlint/markdownlint
-    rev: v0.17.0
+    rev: v0.18.1
     hooks:
       - id: markdownlint
   - repo: https://github.com/shellcheck-py/shellcheck-py
